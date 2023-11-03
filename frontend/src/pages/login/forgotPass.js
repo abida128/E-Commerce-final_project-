@@ -1,0 +1,15 @@
+import React from 'react'
+import Header from '../../components/header'
+
+function ForgotPass() {
+  return (
+    <>
+    <Header /> 
+    <div>
+      forgot pass
+    </div>
+    </>
+  )
+}
+
+export default ForgotPass
