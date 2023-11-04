@@ -3,12 +3,16 @@ import Input from "../../components/input";
 import Header from "../../components/header";
 import Button from "../../components/button";
 import Footer from "../../components/footer";
+import { axiosClient } from "../../configs/axios";
+import toast from "react-hot-toast";
+import { useAuth } from "../../hooks/useAuth";
 
 function SignPage() {
   // State to store the input value
   const [emailInput, setEmail] = useState("");
   const [passInput, setPass] = useState("");
   const [usernameInput, setUsername] = useState("");
+  const auth = useAuth();
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
@@ -19,7 +23,39 @@ function SignPage() {
   const handlePassInput = (e) => {
     setPass(e.target.value);
   };
-  const handleSign = (e) => {};
+  const handleSign = (e) => {
+    const promiseSignup = new Promise((resolve, reject) => {
+      // Create a new object with the dateOfBirthString
+
+      auth.signup(
+        { username: usernameInput, password: passInput, email: emailInput },
+        // error callback
+        (reply) => {
+          if (
+            reply.response?.status === 400 ||
+            reply.response?.status === 409 ||
+            reply.response?.status === 500
+          ) {
+            const message =
+              reply.response?.data?.message ||
+              reply.message ||
+              "Something went wrong";
+            return reject(message);
+          }
+        },
+        // success callback
+        () => {
+          resolve("Registered account successfully");
+        }
+      );
+    });
+
+    toast.promise(promiseSignup, {
+      loading: "Registering new account",
+      success: (response) => response,
+      error: (err) => err,
+    });
+  };
 
   return (
     <>
