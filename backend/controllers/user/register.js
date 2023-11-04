@@ -5,11 +5,11 @@ module.exports = async (req, res, next) => {
     const { username, email, password } = req.body;
 
     if (!username || !email || !password) {
-      return res.status(402).json({ message: "Not valid Data !" });
+      return res.status(400).json({ message: "Not valid Data !" });
     }
     const isUser = await User.findOne({ username: username });
     if (isUser) {
-      return res.status(400).json({ message: "user already exist" });
+      return res.status(409).json({ message: "user already exist" });
     }
 
     const salt = await bcrypt.genSalt(12);
