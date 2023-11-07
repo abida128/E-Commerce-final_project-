@@ -1,9 +1,7 @@
 import React from "react";
-import { AiFillGold } from "react-icons/ai";
+import { AiFillGold, AiFillHtml5 } from "react-icons/ai";
 import { AiFillCodepenSquare } from "react-icons/ai";
 import { AiFillCodeSandboxSquare } from "react-icons/ai";
-import { AiFillHtml5 } from "react-icons/ai";
-import { BiSolidRightArrow } from "react-icons/bi";
 
 const AboutUs = () => {
   return (
@@ -86,7 +84,7 @@ const AboutUs = () => {
           type="button"
         >
           GET STARTED
-           {/* <BiSolidRightArrow />{" "} */}
+          {/* <BiSolidRightArrow />{" "} */}
         </button>
       </div>
 

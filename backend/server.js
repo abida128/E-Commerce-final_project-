@@ -4,7 +4,7 @@ const cors = require("cors");
 const { connect } = require("./configs/mongooseConfig");
 const app = express();
 const port = process.env.PORT || 8000;
-
+app.use(express.static(__dirname));
 connect();
 app.use(cors("*"));
 app.use(express.json());
