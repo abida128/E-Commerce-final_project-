@@ -4,6 +4,7 @@ import { AiFillCodepenSquare } from "react-icons/ai";
 import { AiFillCodeSandboxSquare } from "react-icons/ai";
 import { AiFillHtml5 } from "react-icons/ai";
 import { BiSolidRightArrow } from "react-icons/bi";
+import Team from "../../components/team/team";
 
 const AboutUs = () => {
   return (
@@ -86,7 +87,7 @@ const AboutUs = () => {
           type="button"
         >
           GET STARTED
-           {/* <BiSolidRightArrow />{" "} */}
+          {/* <BiSolidRightArrow />{" "} */}
         </button>
       </div>
 
@@ -96,6 +97,9 @@ const AboutUs = () => {
         </h2>
         <hr className="border-2 border-orange-600 w-[75px] h-[1px] bg-red-900 mt-4 md:mt-8" />
       </div>
+    <div>
+    <Team />
+    </div>
     </>
   );
 };
