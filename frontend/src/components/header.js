@@ -5,7 +5,7 @@ function Header() {
   const auth = useAuth();
   return (
     <header class="bg-transparent-500 py-4 ">
-      <div class="container mx-auto flex justify-between items-center">
+      <div class="mx-auto flex justify-between items-center">
         <div class="flex items-center">
           <svg
             version="1.1"
