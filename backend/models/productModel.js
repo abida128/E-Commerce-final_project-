@@ -1,29 +1,27 @@
-const { model, Schema } = require("mongoose");
-
-const Product = model(
-  "Product",
-  new Schema({
+const mongoose = require("mongoose");
+const Categories = require("./categoriesModel");
+const Product = mongoose.model(
+  "product",
+  new mongoose.Schema({
     name: {
-      type: "string",
+      type: String,
       required: true,
     },
     price: {
-      type: "number",
+      type: Number,
       required: true,
     },
     detail: {
-      type: "string",
+      type: String,
       required: true,
     },
     image: {
-      type: "string",
+      type: String,
       required: true,
     },
-
-    Categories: {
+    categories: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Categories", // Reference to the 'Category' model
-      required: true,
+      ref: "categories",
     },
   })
 );

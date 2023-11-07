@@ -1,11 +1,11 @@
-const { model, Schema } = require("mongoose");
+const mongoose = require("mongoose");
 
-const Categories = model(
-  "Categories",
-  new Schema({
+const Categories = mongoose.model(
+  "categories",
+  new mongoose.Schema({
     name: {
-      type: "string",
-      required: "true",
+      type: String,
+      required: true,
     },
   })
 );
