@@ -14,11 +14,15 @@ import { SuspenseLayout } from "./layouts/SuspenseLayout";
 import { ErrorBoundary } from "./components/errorBoundary";
 import { AppRouter } from "./routes";
 import { Toaster } from "react-hot-toast";
+
+
 function App() {
   return (
     <>
       <AppRouter />
       <Toaster position="top-center" />
+   
+      
     </>
   );
 }
