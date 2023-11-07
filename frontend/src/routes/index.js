@@ -13,6 +13,7 @@ import ForgotPass from "../pages/login/forgotPass";
 import { ErrorBoundary } from "../components/errorBoundary";
 import { SuspenseLayout } from "../layouts/SuspenseLayout";
 import LandingPage from "../pages/rootPage";
+import AboutUs from "../pages/aboutUs/aboutUs";
 
 export const AppRouter = () => {
   return (
@@ -32,6 +33,7 @@ export const AppRouter = () => {
             <Route path="/signup" element={<SignPage />} />
 
             <Route path="/forgot-password" element={<ForgotPass />} />
+            <Route path="/aboutUs" element={<AboutUs />}/>
           </Route>
         )
       )}
