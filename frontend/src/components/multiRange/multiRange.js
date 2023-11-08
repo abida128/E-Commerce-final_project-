@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import "./multiRange.css";
+import Button from "../button";
 
-const MultiRangeSlider = ({ min, max }) => {
+const MultiRangeSlider = ({ min, max, setPrice, price }) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
   const minValRef = useRef(min);
@@ -36,39 +37,63 @@ const MultiRangeSlider = ({ min, max }) => {
     }
   }, [maxVal, getPercent]);
 
-  return (
-    <div className="min-w-full">
-      <input
-        type="range"
-        min={min}
-        max={max}
-        value={minVal}
-        onChange={(event) => {
-          const value = Math.min(Number(event.target.value), maxVal - 1);
-          setMinVal(value);
-          minValRef.current = value;
-        }}
-        className="thumb thumb--left"
-        style={{ zIndex: minVal > max - 100 && "5" }}
-      />
-      <input
-        type="range"
-        min={min}
-        max={max}
-        value={maxVal}
-        onChange={(event) => {
-          const value = Math.max(Number(event.target.value), minVal + 1);
-          setMaxVal(value);
-          maxValRef.current = value;
-        }}
-        className="thumb thumb--right"
-      />
+  const handleSetValues = () => {
+    setPrice({
+      minPrice: minVal,
+      maxPrice: maxVal,
+    });
+  };
 
-      <div className="slider">
-        <div className="slider__track" />
-        <div ref={range} className="slider__range" />
-        <div className="slider__left-value">${minVal}</div>
-        <div className="slider__right-value">${maxVal}</div>
+  const handleReset = () => {
+    setPrice(null);
+  };
+
+  return (
+    <div>
+      <div className="min-w-full">
+        <input
+          type="range"
+          min={min}
+          max={max}
+          value={minVal}
+          onChange={(event) => {
+            const value = Math.min(Number(event.target.value), maxVal - 1);
+            setMinVal(value);
+            minValRef.current = value;
+          }}
+          className="thumb thumb--left"
+          style={{ zIndex: minVal > max - 100 && "5" }}
+        />
+        <input
+          type="range"
+          min={min}
+          max={max}
+          value={maxVal}
+          onChange={(event) => {
+            const value = Math.max(Number(event.target.value), minVal + 1);
+            setMaxVal(value);
+            maxValRef.current = value;
+          }}
+          className="thumb thumb--right"
+        />
+
+        <div className="slider">
+          <div className="slider__track" />
+          <div ref={range} className="slider__range" />
+          <div className="slider__left-value">${minVal}</div>
+          <div className="slider__right-value">${maxVal}</div>
+        </div>
+      </div>
+      <div
+        style={{
+          paddingTop: "70px",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <Button label="apply" onClick={handleSetValues} />
+
+        {price && <Button label="Reset" onClick={handleReset} />}
       </div>
     </div>
   );
