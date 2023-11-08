@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 function Header() {
   const auth = useAuth();
   return (
-    <header class="bg-transparent-500 py-4 ">
+    <header class="bg-transparent-500 py-8  px-10">
       <div class="mx-auto flex justify-between items-center">
         <div class="flex items-center">
           <svg
@@ -70,7 +70,7 @@ function Header() {
           <a href="#" class="text-[##415161] hover:text-gray-300">
             Home
           </a>
-          <a href="#" class="text-[##415161] hover:text-gray-300">
+          <a href="/products" class="text-[##415161] hover:text-gray-300">
             Product
           </a>
           <a href="#" class="text-[##415161] hover:text-gray-300">

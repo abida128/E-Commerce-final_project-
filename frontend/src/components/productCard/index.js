@@ -1,13 +1,18 @@
 import image from "../../Assets/images/mug-white.png";
-const ProductCard = () => {
+const ProductCard = ({ name, image, price, selectedCat }) => {
   return (
     <div className=" text-center space-x-4">
-      <img src={image} alt="imagecup" className="min-w-full min-h-[100px]" />
-      <p className="font-thin text-[#415161]">Mugs</p>
-      <h4 class="font-bold text-base font-poppins leading-tight">
-        Father’s Day Coffee Mug
+      <img
+        src={"http://localhost:8080/uploads/" + image}
+        alt="imagecup"
+        className="w-full h-[240px] object-cover"
+      />
+      <p className="font-thin text-[#415161]">{selectedCat}</p>
+      <h4 className="font-bold text-base font-poppins leading-tight overflow-hidden overflow-ellipsis whitespace-nowrap">
+        {name}
       </h4>
-      <p>$12.88</p>
+
+      <p>${price}</p>
     </div>
   );
 };
