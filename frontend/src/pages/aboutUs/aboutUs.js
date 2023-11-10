@@ -5,6 +5,7 @@ import { AiFillCodeSandboxSquare } from "react-icons/ai";
 import { AiFillHtml5 } from "react-icons/ai";
 import { BiSolidRightArrow } from "react-icons/bi";
 import Team from "../../components/team/team";
+import Accordion from "../accordion/accordion";
 
 const AboutUs = () => {
   return (
@@ -91,7 +92,7 @@ const AboutUs = () => {
         </button>
       </div>
 
-      <div className="flex  justify-center items-center py-3 flex-col">
+      <div className="flex  justify-center items-center py-10 flex-col">
         <h2 className="text-3xl text-[#415161] font-bold">
           Meet Our Creative Team
         </h2>
@@ -99,7 +100,10 @@ const AboutUs = () => {
       </div>
     <div>
     <Team />
+    <Accordion />
     </div>
+
+
     </>
   );
 };
