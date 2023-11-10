@@ -1,11 +1,19 @@
 import React from "react";
 import { useAuth } from "../hooks/useAuth";
+import AvatarDropdown from "./avatar";
+import Button from "./button";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
-  const auth = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
   return (
-    <header class="bg-transparent-500 py-4 ">
-      <div class="container mx-auto flex justify-between items-center">
+    <header class="bg-transparent-500 py-8  px-10">
+      <div class="mx-auto flex justify-between items-center">
         <div class="flex items-center">
           <svg
             version="1.1"
@@ -67,37 +75,25 @@ function Header() {
           </svg>
         </div>
         <nav class="space-x-4">
-          <a href="#" class="text-[##415161] hover:text-gray-300">
+          <Link to="/" class="text-[##415161] hover:text-gray-300">
             Home
-          </a>
-          <a href="#" class="text-[##415161] hover:text-gray-300">
-            Product
-          </a>
-          <a href="#" class="text-[##415161] hover:text-gray-300">
+          </Link>
+          <Link to="/products" class="text-[##415161] hover:text-gray-300">
+            Products
+          </Link>
+          <Link to="/" class="text-[##415161] hover:text-gray-300">
             Contact
-          </a>
-          <a href="#" class="text-[##415161] hover:text-gray-300">
+          </Link>
+          <Link to="/" class="text-[##415161] hover:text-gray-300">
             About
-          </a>
+          </Link>
         </nav>
-        <div class="flex items-center space-x-4" onClick={auth.logout}>
-          <a href="#" class="text-[##415161] hover:text-gray-300">
-            Logout
-          </a>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-[##415161] hover:text-gray-300"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+        <div class="flex items-center space-x-4">
+          {user ? (
+            <AvatarDropdown logout={logout} />
+          ) : (
+            <Button label="Login" onClick={handleLogin} />
+          )}
         </div>
       </div>
     </header>
