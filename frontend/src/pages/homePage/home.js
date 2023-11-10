@@ -8,12 +8,13 @@ import Img1 from "../../Assets/images/mug-white.png";
 import Img2 from "../../Assets/images/mug-coffee.jpg";
 import Img3 from "../../Assets/images/mug-yellow.jpg";
 import Img4 from "../../Assets/images/mug-blue.jpg";
-
-
-import Imag1 from '../../Assets/images/tshirt.jpg'
-import Imag2 from '../../Assets/images/tshirt6.jpg'
-import Imag3 from '../../Assets/images/tshirt2.jpg'
-import Imag4 from '../../Assets/images/tshirt5.jpg'
+import Imag1 from '../../Assets/images/tshirt.jpg';
+import Imag2 from '../../Assets/images/tshirt6.jpg';
+import Imag3 from '../../Assets/images/tshirt2.jpg';
+import Imag4 from '../../Assets/images/tshirt5.jpg';
+import Client1 from '../../Assets/images/client02.jpg';
+import Client2 from '../../Assets/images/client2.png';
+import Client3 from '../../Assets/images/client3.png';
 
 import Card from "../../components/Home/HomeCard";
 import ProductCard from "../../components/Home/ProductCard";
@@ -216,8 +217,51 @@ function Home() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="flex">
+       {/*  Testimonials */}
+
+
+    <div className=" container m-aut bg-gray-100  p-6">
+      <div className="max-w-3xl flex gap-10 mx-auto">
+        {/* Testimonial 1 */}
+        <div className="bg-white rounded-lg p-4 mb-4">
+         
+          <p className="text-gray-700">
+          "Lectus, nonummy et. Occaecat delectus erat, minima dapibus ornare nunc, autem."          </p>
+          <div className="flex">
+          <img src={Client1} alt="client" />
+          <p className="text-gray-600 font-semibold">John Doe</p>
+          </div>
+        </div>
+
+        {/* Testimonial 2 */}
+        <div className="bg-white rounded-lg p-4">
+          <p className="text-gray-700">
+          "Lectus, nonummy et. Occaecat delectus erat, minima dapibus ornare nunc, autem."
+             </p>
+          
+          <div className="flex mt-4 gap-2 ">
+            <img src={Client2} alt="client" />
+          <p className="text-gray-600 font-semibold ">Jane Smith</p>
+          </div>
+        </div>
+        {/* Testimonial 3 */}
+        <div className="bg-white rounded-lg p-4">
         
+          <p className="text-gray-700">
+          "Lectus, nonummy et. Occaecat delectus erat, minima dapibus ornare nunc, autem." 
+          </p>
+        
+          <div className="flex ">
+            <img src={Client3} alt="client" />
+            <p className="text-gray-600 font-semibold">Jane Smith</p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
       </div>
 
       </div>
