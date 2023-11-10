@@ -1,4 +1,4 @@
-const { model, Schema } = require("mongoose");
+const { model, Schema, default: mongoose } = require("mongoose");
 
 var validateEmail = function (email) {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -23,6 +23,10 @@ const User = model(
     password: {
       type: String,
       required: true,
+    },
+    shoppingCart: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "shoppingCart",
     },
   })
 );

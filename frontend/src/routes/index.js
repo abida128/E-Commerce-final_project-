@@ -14,7 +14,7 @@ import ForgotPass from "../pages/login/forgotPass";
 import ContactPage from "../pages/ContactPage";
 import { ErrorBoundary } from "../components/errorBoundary";
 import { SuspenseLayout } from "../layouts/SuspenseLayout";
-import LandingPage from "../pages/rootPage";
+
 import AboutUs from "../pages/aboutUs/aboutUs";
 import Product from "../pages/products";
 
@@ -31,8 +31,8 @@ export const AppRouter = () => {
               </SuspenseLayout>
             }
           >
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignPage />} />
             <Route path="/Products" element={<Product />} />
