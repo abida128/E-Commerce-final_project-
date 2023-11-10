@@ -28,7 +28,7 @@ module.exports = async (req, res, next) => {
 
     const resPayload = {
       accessToken,
-      ...user.toObject(), // Remove .toObject() from here
+      userData: { ...user.toObject() }, // Remove .toObject() from here
     };
 
     return res.status(200).json(resPayload);
