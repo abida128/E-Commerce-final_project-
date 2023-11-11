@@ -1,16 +1,19 @@
 import { useState } from "react";
-
 import AddToCart from "../addTocartModal";
-const ProductCard = ({ name, image, price, selectedCat }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+const ProductCard = ({ name, image, price, selectedCat, _id }) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  console.log(isDialogOpen, "is");
   const handleOpenDialog = () => {
     setIsDialogOpen(true);
   };
 
-  const handleCloseDialog = () => {
+  const handleCloseDialog = (e) => {
+    e.stopPropagation();
+
     setIsDialogOpen(false);
   };
+
   return (
     <div
       className="cursor-pointer text-center space-x-4"
@@ -23,6 +26,7 @@ const ProductCard = ({ name, image, price, selectedCat }) => {
         price={price}
         showModal={isDialogOpen}
         onClose={handleCloseDialog}
+        id={_id}
       />
       <img
         src={"http://localhost:8080/uploads/" + image}
@@ -33,9 +37,9 @@ const ProductCard = ({ name, image, price, selectedCat }) => {
       <h4 className="font-bold text-base font-poppins leading-tight overflow-hidden overflow-ellipsis whitespace-nowrap">
         {name}
       </h4>
-
       <p>${price}</p>
     </div>
   );
 };
+
 export default ProductCard;
