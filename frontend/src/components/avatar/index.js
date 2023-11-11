@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import image from "../../Assets/images/fashion__.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserCartData } from "../../redux/cart/getUsercartData.action";
 
-const AvatarDropdown = ({ logout }) => {
+const AvatarDropdown = ({ logout, user }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  useEffect(() => {
+    dispatch(getUserCartData(user._id));
+  }, []);
+
   return (
-    <div className="relative inline-block text-left m-4">
+    <div className="relative inline-block text-left ">
       <button
         type="button"
         className="inline-flex items-center justify-center p-2 rounded-full cursor-pointer focus:outline-none focus:ring focus:border-blue-300"
@@ -20,7 +27,7 @@ const AvatarDropdown = ({ logout }) => {
 
       {isDropdownOpen && (
         <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-          <div className="py-1">
+          <div className="py-1 text-center">
             <button
               type="button"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"

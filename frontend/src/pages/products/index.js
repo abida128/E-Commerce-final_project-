@@ -9,6 +9,7 @@ import SkeltonCard from "../../components/cardSkeleton";
 import { GuardWrapper } from "../../layouts/GuardWrapper";
 import { SuspenseLayout } from "../../layouts/SuspenseLayout";
 import UserLayout from "../../layouts/UserLayout";
+import AddToCart from "../../components/addTocartModal";
 const Product = (props) => {
   const [selectedCat, setSelectedCat] = useState({
     name: "Mugs",
@@ -120,8 +121,8 @@ const Product = (props) => {
 
 Product.defaultProps = {
   getLayout: (page) => <UserLayout>{page}</UserLayout>,
-  authGuard: false,
   guestGuard: false,
+  authGuard: false,
 };
 
 export default Product;

@@ -1,7 +1,29 @@
-import image from "../../Assets/images/mug-white.png";
+import { useState } from "react";
+
+import AddToCart from "../addTocartModal";
 const ProductCard = ({ name, image, price, selectedCat }) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
   return (
-    <div className=" text-center space-x-4">
+    <div
+      className="cursor-pointer text-center space-x-4"
+      onClick={handleOpenDialog}
+    >
+      <AddToCart
+        image={image}
+        selectedCat={selectedCat}
+        name={name}
+        price={price}
+        showModal={isDialogOpen}
+        onClose={handleCloseDialog}
+      />
       <img
         src={"http://localhost:8080/uploads/" + image}
         alt="imagecup"

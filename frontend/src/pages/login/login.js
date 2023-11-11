@@ -44,8 +44,8 @@ function LoginPage(props) {
   };
 
   return (
-    <GuardWrapper {...props} className="flex ">
-      <div className="bg-[#ededed] pb-10 ">
+    <GuardWrapper {...props}>
+      <div className="bg-[#ededed] pb-10 min-w-min md:min-w-[700px]">
         <h2 className="p-10 text-[#415161] text-2xl font-semibold">Login</h2>
         <div className="border border-gray-300 p-5 mx-10 rounded">
           <Input
