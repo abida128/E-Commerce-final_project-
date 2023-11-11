@@ -9,7 +9,7 @@ const people = [
     },
     {
       name: "Lindsay Walton",
-      role: "Front-end Developer",
+      role: "Back-end Developer",
       imageUrl:
         "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
       twitterUrl: "#",
@@ -17,31 +17,31 @@ const people = [
     },
     {
       name: "Lindsay Walton",
-      role: "Front-end Developer",
+      role: "Full-Stack Developer",
       imageUrl:
         "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
       twitterUrl: "#",
       linkedinUrl: "#",
     },
   ];
-  
-  export default function OurTeam() {
+
+  export default function Team() {
     return (
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Our team
+              
             </h2>
           </div>
           <ul
             role="list"
-            className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+            className=" grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 text-center"
           >
             {people.map((person) => (
               <li key={person.name}>
                 <img
-                  className="aspect-[3/2] w-full rounded-2xl object-cover"
+                  className="aspect-[3/2] rounded-2xl object-cover h-[400px]"
                   src={person.imageUrl}
                   alt=""
                 />
@@ -49,7 +49,7 @@ const people = [
                   {person.name}
                 </h3>
                 <p className="text-base leading-7 text-gray-600">{person.role}</p>
-                <ul role="list" className="mt-6 flex gap-x-6">
+                <ul role="list" className="mt-6 flex justify-center gap-x-6">
                   <li>
                     <a
                       href={person.twitterUrl}
@@ -94,3 +94,5 @@ const people = [
       </div>
     );
   }
+
+
