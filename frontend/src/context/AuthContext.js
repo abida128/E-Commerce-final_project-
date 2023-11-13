@@ -57,6 +57,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const handleLogin = async (params, errorCallback, successCallback) => {
+    console.log(localStorage.getItem(authConfig.storageTokenKeyName, "tokee"));
     try {
       const response = await axiosClient.post(authConfig.loginEndpoint, params);
       const newToken = response.data.accessToken;

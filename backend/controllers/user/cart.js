@@ -5,9 +5,9 @@ const { User, ShoppingCart } = require("../../models"); // Update the path as ne
 // Get user's shopping cart
 module.exports = async (req, res) => {
   try {
-    const userId = req.body.userId;
+    const { userId } = req.query;
 
-    console.log(req.body, "userID");
+    console.log(userId, "userIDcart");
 
     // Check if the user exists
     const userExists = await User.exists({ _id: userId });

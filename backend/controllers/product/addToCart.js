@@ -6,8 +6,8 @@ const ShoppingCartSchema = require("../../models/shoppingCartModel");
 // Add to Cart route
 module.exports = async (req, res) => {
   try {
-    const { userId, productId, quantity } = req.body;
-
+    const { userId, productId, quantity } = req.query;
+    console.log(req);
     // Find the user
     const user = await User.findById(userId);
     if (!user) {

@@ -5,14 +5,14 @@ import Button from "./button";
 import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
-  const { user, logout } = useAuth();
+  const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = () => {
     navigate("/login");
   };
   return (
-    <header class="bg-transparent-500 py-8  px-10">
+    <header class="bg-transparent-500 py-8  px-10 max-h-[100px]">
       <div class="mx-auto flex justify-between items-center">
         <div class="flex items-center">
           <svg
@@ -89,11 +89,8 @@ function Header() {
           </Link>
         </nav>
         <div class="flex items-center space-x-4">
-          {user ? (
-            <AvatarDropdown logout={logout} />
-          ) : (
-            <Button label="Login" onClick={handleLogin} />
-          )}
+          {user && <AvatarDropdown logout={logout} user={user} />}
+          {!user && <Button label="Login" onClick={handleLogin} />}
         </div>
       </div>
     </header>

@@ -6,8 +6,10 @@ import Footer from "../../components/footer";
 import { axiosClient } from "../../configs/axios";
 import toast from "react-hot-toast";
 import { useAuth } from "../../hooks/useAuth";
+import BlankLayout from "../../layouts/BlankLayout";
+import { GuardWrapper } from "../../layouts/GuardWrapper";
 
-function SignPage() {
+function SignPage(props) {
   // State to store the input value
   const [emailInput, setEmail] = useState("");
   const [passInput, setPass] = useState("");
@@ -58,8 +60,8 @@ function SignPage() {
   };
 
   return (
-    <>
-      <div className="bg-[#ededed] pb-10">
+    <GuardWrapper {...props}>
+      <div className="bg-[#ededed] pb-10 min-w-min md:min-w-[700px]">
         <h2 className="p-10 text-[#415161] text-2xl font-semibold">Register</h2>
         <div className="border border-gray-300 p-5 mx-10 rounded">
           <Input
@@ -113,8 +115,11 @@ function SignPage() {
           <Button label="Register" onClick={handleSign} />
         </div>
       </div>
-    </>
+    </GuardWrapper>
   );
 }
-
+SignPage.defaultProps = {
+  getLayout: (page) => <BlankLayout>{page}</BlankLayout>,
+  guestGuard: true,
+};
 export default SignPage;
