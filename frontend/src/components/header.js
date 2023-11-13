@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Header() {
   const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
-  console.log(user, loading, "loadind");
+
   const handleLogin = () => {
     navigate("/login");
   };
