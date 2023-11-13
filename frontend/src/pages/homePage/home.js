@@ -1,4 +1,5 @@
 import React from "react";
+
 import MainCard from "../../components/sections/MainCard";
 import DisplayCard from "../../components/sections/DisplayCard";
 import ShopNow from "../../components/sections/ShopNow";
@@ -23,6 +24,5 @@ const Home = () =>{
 
     </div>
   )
-}
-
 export default Home;
+

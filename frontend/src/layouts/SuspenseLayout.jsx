@@ -11,8 +11,6 @@ export const SuspenseLayout = ({ children }) => {
   return (
     <AuthProvider>
       <Suspense fallback={<Spinner />}>{children}</Suspense>
-      <Footer />
-      <Footer />
     </AuthProvider>
   );
 };
