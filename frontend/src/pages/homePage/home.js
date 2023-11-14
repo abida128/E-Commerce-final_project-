@@ -11,7 +11,7 @@ import LogoSection from "../../components/sections/LogoSection";
 
 const Home = () =>{
   return (
-    <div className="container m-auto">
+    <div className=" m-auto flex flex-col">
       <MainCard/>
       <DisplayCard/>
       <NewProductCard/>
@@ -19,10 +19,8 @@ const Home = () =>{
       <SaleCard/>
       <TestiMonial/>
       <LogoSection/>
-      
-
-
     </div>
   )
-export default Home;
 
+  }
+  export default Home;

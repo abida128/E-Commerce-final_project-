@@ -8,7 +8,7 @@ const  MainCard = () => {
     <>
       {/* first section */}
 
-      <div className=" flex container m-auto flex-col-reverse lg:flex-row justify-around bg-gray-100">
+      <div className=" flex  m-auto flex-col-reverse lg:flex-row justify-around bg-gray-100">
         <div className=" py-8 px-10 mt-10 m-auto w-[45%] sm:w-[80%]">
           <div className="text-center flex justify-start mt-5">
             <hr className="bg-[#ff5151] h-[4px] w-[80px] " />
