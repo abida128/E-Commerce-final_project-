@@ -81,10 +81,10 @@ function Header() {
           <Link to="/products" class="text-[##415161] hover:text-gray-300">
             Products
           </Link>
-          <Link to="/" class="text-[##415161] hover:text-gray-300">
+          <Link to="/contact" class="text-[##415161] hover:text-gray-300">
             Contact
           </Link>
-          <Link to="/" class="text-[##415161] hover:text-gray-300">
+          <Link to="/aboutUs" class="text-[##415161] hover:text-gray-300">
             About
           </Link>
         </nav>
