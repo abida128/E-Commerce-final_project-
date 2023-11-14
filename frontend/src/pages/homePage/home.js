@@ -7,18 +7,28 @@ import NewProductCard from "../../components/sections/NewProductCard";
 import SaleCard from "../../components/sections/SaleCard";
 import TestiMonial from "../../components/sections/TestiMonial";
 import LogoSection from "../../components/sections/LogoSection";
+import UserLayout from "../../layouts/UserLayout";
+import { GuardWrapper } from "../../layouts/GuardWrapper";
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <div className="container m-auto">
-      <MainCard />
-      <DisplayCard />
-      <NewProductCard />
-      <ShopNow />
-      <SaleCard />
-      <TestiMonial />
-      <LogoSection />
-    </div>
+    <GuardWrapper {...props}>
+      <div className=" m-auto flex flex-col">
+        <MainCard />
+        <DisplayCard />
+        <NewProductCard />
+        <ShopNow />
+        <SaleCard />
+        <TestiMonial />
+        <LogoSection />
+      </div>
+    </GuardWrapper>
   );
 };
 export default Home;
+
+Home.defaultProps = {
+  getLayout: (page) => <UserLayout>{page}</UserLayout>,
+  guestGuard: false,
+  authGuard: false,
+};
