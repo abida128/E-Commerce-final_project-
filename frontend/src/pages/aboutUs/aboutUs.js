@@ -2,15 +2,17 @@ import React from "react";
 import { AiFillGold, AiFillHtml5 } from "react-icons/ai";
 import { AiFillCodepenSquare } from "react-icons/ai";
 import { AiFillCodeSandboxSquare } from "react-icons/ai";
+import { GuardWrapper } from "../../layouts/GuardWrapper";
+import { SuspenseLayout } from "../../layouts/SuspenseLayout";
+import UserLayout from "../../layouts/UserLayout";
 
 import { BiSolidRightArrow } from "react-icons/bi";
 import Team from "../../components/team/team";
 import Accordion from "../accordion/accordion";
 
-
-const AboutUs = () => {
+const AboutUs = (props) => {
   return (
-    <>
+    <GuardWrapper {...props}>
       <div className="text-center p-12 mt-12">
         <h1 className="text-6xl font-bold pb-6 text-[#415161]">About Us</h1>
         <p className="text-center m-auto text-[#415161] text-lg">
@@ -99,14 +101,18 @@ const AboutUs = () => {
         </h2>
         <hr className="border-2 border-orange-600 w-[75px] h-[1px] bg-red-900 mt-4 md:mt-8" />
       </div>
-    <div>
-    <Team />
-    <Accordion />
-    </div>
-
-
-    </>
+      <div>
+        <Team />
+        <Accordion />
+      </div>
+    </GuardWrapper>
   );
 };
 
 export default AboutUs;
+
+AboutUs.defaultProps = {
+  getLayout: (page) => <UserLayout>{page}</UserLayout>,
+  guestGuard: false,
+  authGuard: false,
+};

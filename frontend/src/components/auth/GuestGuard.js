@@ -15,7 +15,7 @@ const GuestGuard = (props) => {
 
   useEffect(() => {
     if (localStorage.getItem("userData") && !skipAuthCheck) {
-      router("/home");
+      router("/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
