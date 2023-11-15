@@ -7,7 +7,6 @@ module.exports = async (req, res) => {
     const maxPrice = parseFloat(req.query.maxPrice);
 
     let query = {};
-    console.log(req.query, "query");
 
     if (category) {
       query.categories = category;

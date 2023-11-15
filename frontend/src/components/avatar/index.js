@@ -51,7 +51,7 @@ const AvatarDropdown = ({ logout, user }) => {
                 </div>
                 <div class="pl-3">
                   <p class="text-sm font-medium text-gray-800 leading-none">
-                    profile
+                    Dashboard
                   </p>
                   <p class="text-xs text-gray-500">
                     cart/product, users &amp; teams
