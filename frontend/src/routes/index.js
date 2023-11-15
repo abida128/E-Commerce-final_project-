@@ -17,6 +17,7 @@ import { SuspenseLayout } from "../layouts/SuspenseLayout";
 
 import AboutUs from "../pages/aboutUs/aboutUs";
 import Product from "../pages/products";
+import ProfilePageComponent from "../pages/profile";
 
 export const AppRouter = () => {
   return (
@@ -40,6 +41,7 @@ export const AppRouter = () => {
             <Route path="/forgot-password" element={<ForgotPass />} />
 
             <Route path="/aboutUs" element={<AboutUs />} />
+            <Route path="/profile" element={<ProfilePageComponent />} />
 
             <Route path="/contact" element={<ContactPage />} />
           </Route>
