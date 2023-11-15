@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { axiosClient } from "../../configs/axios";
 import toast from "react-hot-toast";
 
@@ -10,6 +10,8 @@ const UploadProduct = () => {
     categories: "",
     file: null,
   });
+
+  const [catogery, setCatogery] = useState([]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -69,6 +71,20 @@ const UploadProduct = () => {
     });
   };
 
+  useEffect(() => {
+    // Make the API call when the component mounts
+    axiosClient
+      .get("/category/allCategories")
+      .then((response) => {
+        setCatogery(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching product data:", error);
+      });
+  }, []);
+
+  console.log(catogery, "bs");
+
   return (
     <div className="sm:max-w-3xl w-full p-10 mx-auto rounded-xl z-10">
       <div className="text-center">
@@ -118,17 +134,21 @@ const UploadProduct = () => {
           />
         </div>
         <div className="grid grid-cols-1 space-y-2">
-          <label className="text-sm font-bold text-gray-500 tracking-wide">
-            Categories
-          </label>
-          <input
+          <select
             className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
-            type="text"
             name="categories"
-            placeholder="Product Categories"
             value={productData.categories}
             onChange={handleInputChange}
-          />
+          >
+            <option value="" disabled>
+              Select a category
+            </option>
+            {catogery.map((category) => (
+              <option key={category._id} value={category._id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="grid grid-cols-1 space-y-2">
           <label className="text-sm font-bold text-gray-500 tracking-wide">

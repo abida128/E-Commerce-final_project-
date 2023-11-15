@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import TableProduct from "../../components/allProducts";
 import UploadProduct from "../../components/uploadCompo";
-
-const AddCategoryComponent = () => {
-  return <div>Add Category Component Content</div>;
-};
+import Catogery from "../../components/allCatogeries";
 
 const ProfilePageComponent = () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
@@ -20,7 +17,7 @@ const ProfilePageComponent = () => {
       id: "addCategory",
       label: "Add Category",
       icon: "bx-category",
-      component: <AddCategoryComponent />,
+      component: <Catogery />,
     },
     {
       id: "showAllProducts",
