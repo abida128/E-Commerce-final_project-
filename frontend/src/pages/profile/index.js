@@ -4,7 +4,7 @@ import UploadProduct from "../../components/uploadCompo";
 import Catogery from "../../components/allCatogeries";
 
 const ProfilePageComponent = () => {
-  const [selectedMenuItem, setSelectedMenuItem] = useState(null);
+  const [selectedMenuItem, setSelectedMenuItem] = useState("showAllProducts");
 
   const menuItems = [
     {

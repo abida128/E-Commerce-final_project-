@@ -50,6 +50,36 @@ const Catogery = () => {
       error: (err) => err,
     });
   };
+
+  const deleteCategory = async (categoryId) => {
+    const res = await axiosClient.delete(
+      `/category/deleteCategory/${categoryId}`
+    );
+    return res;
+  };
+
+  const handleDeleteCategory = (categoryId) => {
+    const resultPromise = new Promise((resolve, reject) => {
+      deleteCategory(categoryId)
+        .then(() => {
+          // Filter out the deleted category from the productData state
+          const updatedProductData = productData.filter(
+            (product) => product._id !== categoryId
+          );
+          setProductData(updatedProductData);
+          resolve();
+        })
+        .catch(({ response }) => {
+          reject(response.data?.error || "Something went wrong");
+        });
+    });
+
+    toast.promise(resultPromise, {
+      loading: "Deleting category...",
+      success: "Deleted category successfully",
+      error: (err) => err,
+    });
+  };
   return (
     <section className="py-1 bg-blueGray-50">
       <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
@@ -90,7 +120,12 @@ const Catogery = () => {
                         {product?._id}
                       </th>
                       <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
-                        <Button label="delete" />
+                        <Button
+                          label="delete"
+                          onClick={() => {
+                            handleDeleteCategory(product._id);
+                          }}
+                        />
                       </th>
                     </tr>
                   ))
