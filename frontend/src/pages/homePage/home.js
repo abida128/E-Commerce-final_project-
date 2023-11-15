@@ -13,7 +13,7 @@ import { GuardWrapper } from "../../layouts/GuardWrapper";
 const Home = (props) => {
   return (
     <GuardWrapper {...props}>
-      <div className=" m-auto flex flex-col">
+      <div className=" ">
         <MainCard />
         <DisplayCard />
         <NewProductCard />

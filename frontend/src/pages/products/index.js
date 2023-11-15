@@ -97,7 +97,9 @@ const Product = (props) => {
             <p>Show all {allProducts?.length} results</p>
           </div>
           {!isProductFetching && allProducts.length < 1 && (
-            <p>No Products Found!</p>
+            <p className="flex justify-center items-center min-h-[200px] text-3xl text-[#ff5151]">
+              No Products Found!
+            </p>
           )}
           <div className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {isProductFetching &&
@@ -108,7 +110,7 @@ const Product = (props) => {
                 })}
 
             {!isProductFetching &&
-              allProducts.length &&
+              allProducts &&
               allProducts?.map((item) => {
                 return <ProductCard {...item} selectedCat={selectedCat.name} />;
               })}

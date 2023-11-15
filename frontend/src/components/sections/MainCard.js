@@ -1,15 +1,14 @@
-import React from 'react';
-import {FaAngleRight} from  'react-icons/fa';
+import React from "react";
+import { FaAngleRight } from "react-icons/fa";
 import Image from "../../Assets/images/girl.png";
 
-
-const  MainCard = () => {
+const MainCard = () => {
   return (
     <>
       {/* first section */}
 
-      <div className=" flex  m-auto flex-col-reverse lg:flex-row justify-around bg-gray-100">
-        <div className=" py-8 px-10 mt-10 m-auto w-[45%] sm:w-[80%]">
+      <div className=" flex  m-auto flex-col-reverse lg:flex-row justify-around bg-gray-100 pt-[100px]">
+        <div className=" py-8 px-10 mt-10 m-auto max-w-[40%] sm:w-[80%]">
           <div className="text-center flex justify-start mt-5">
             <hr className="bg-[#ff5151] h-[4px] w-[80px] " />
           </div>
@@ -17,7 +16,7 @@ const  MainCard = () => {
           <div className="text-[#415161] font-poppins mt-6">
             <h5>Best Quality Products</h5>
           </div>
-          <div className="text-2xl font-semibold mt-6 leading-10">
+          <div className="text-[10px] sm:text-3xl md:text-5xl max-w-[14ch] font-semibold mt-6 leading-20">
             <h1>We Print What You Want!</h1>
           </div>
           <div className="mt-6 text-[#415161] font-poppins ">
@@ -42,9 +41,9 @@ const  MainCard = () => {
         <div className="mt-4 lg:mt-0">
           <img src={Image} alt="fashion girl" className="h-[614px] w-[538px]" />
         </div>
-      </div> 
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default MainCard;

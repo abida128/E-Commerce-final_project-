@@ -3,16 +3,23 @@ import { useAuth } from "../hooks/useAuth";
 import AvatarDropdown from "./avatar";
 import Button from "./button";
 import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Header() {
   const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const isActivePage = (pathname) => location.pathname === pathname;
   const handleLogin = () => {
     navigate("/login");
   };
   return (
-    <header class="bg-transparent-500 py-8  px-10 max-h-[100px]">
+    <header
+      class={`${
+        isHomePage ? "absolute w-full min-w-full" : "fixed"
+      }bg-transparent-500 py-8  px-10 max-h-[100px]`}
+    >
       <div class="mx-auto flex justify-between items-center">
         <div class="flex items-center">
           <svg
@@ -75,16 +82,42 @@ function Header() {
           </svg>
         </div>
         <nav class="space-x-4">
-          <Link to="/" class="text-[##415161] hover:text-gray-300">
+          <Link
+            to="/"
+            className={`${
+              isActivePage("/") ? "text-[#ff3f26] font-bold" : "text-[#415161]"
+            } hover:text-[#ff3f26]`}
+          >
             Home
           </Link>
-          <Link to="/products" class="text-[##415161] hover:text-gray-300">
+          <Link
+            to="/products"
+            className={`${
+              isActivePage("/products")
+                ? "text-[#ff3f26] font-bold"
+                : "text-[#415161]"
+            } hover:text-[#ff3f26]`}
+          >
             Products
           </Link>
-          <Link to="/contact" class="text-[##415161] hover:text-gray-300">
+          <Link
+            to="/contact"
+            className={`${
+              isActivePage("/contact")
+                ? "text-[#ff3f26] font-bold"
+                : "text-[#415161]"
+            } hover:text-[#ff3f26]`}
+          >
             Contact
           </Link>
-          <Link to="/aboutUs" class="text-[##415161] hover:text-gray-300">
+          <Link
+            to="/aboutUs"
+            className={`${
+              isActivePage("/aboutUs")
+                ? "text-[#ff3f26] font-bold"
+                : "text-[#415161]"
+            } hover:text-[#ff3f26]`}
+          >
             About
           </Link>
         </nav>
