@@ -16,7 +16,7 @@ const MainCard = () => {
           <div className="text-[#415161] font-poppins mt-6">
             <h5>Best Quality Products</h5>
           </div>
-          <div className="text-[10px] sm:text-3xl tablet:text-7xl max-w-[14ch] font-semibold mt-6 leading-20">
+          <div className="text-[10px] sm:text-3xl md:text-5xl max-w-[14ch] font-semibold mt-6 leading-20">
             <h1>We Print What You Want!</h1>
           </div>
           <div className="mt-6 text-[#415161] font-poppins ">
