@@ -6,6 +6,7 @@ import { AiFillHtml5 } from "react-icons/ai";
 import { BiSolidRightArrow } from "react-icons/bi";
 import Team from "../../components/team/team";
 import Accordion from "../accordion/accordion";
+import worldWide from "../worldWide/worldWide"
 
 const AboutUs = () => {
   return (
@@ -101,6 +102,7 @@ const AboutUs = () => {
     <div>
     <Team />
     <Accordion />
+    <worldWide />
     </div>
 
 
