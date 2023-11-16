@@ -5,7 +5,7 @@ import UserLayout from "../layouts/UserLayout";
 
 function ContactPage(props) {
   return (
-    <GuardWrapper {...props} classname="mt-10">
+    <GuardWrapper {...props} classname="mt-10 ">
       <ContactForm />
     </GuardWrapper>
   );

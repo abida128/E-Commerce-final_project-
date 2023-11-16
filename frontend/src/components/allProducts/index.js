@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import { axiosClient } from "../../configs/axios";
+import Button from "../button";
+import toast from "react-hot-toast";
 
 const TableProduct = () => {
   const [productData, setProductData] = useState([]);
@@ -31,6 +33,36 @@ const TableProduct = () => {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const deleteCategory = async (categoryId) => {
+    const res = await axiosClient.delete(
+      `/product/deleteProduct/${categoryId}`
+    );
+    return res;
+  };
+  console.log();
+  const handleDeleteCategory = (categoryId) => {
+    const resultPromise = new Promise((resolve, reject) => {
+      deleteCategory(categoryId)
+        .then(() => {
+          // Filter out the deleted category from the productData state
+          const updatedProductData = productData.filter(
+            (product) => product._id !== categoryId
+          );
+          setProductData(updatedProductData);
+          resolve();
+        })
+        .catch(({ response }) => {
+          reject(response.data?.error || "Something went wrong");
+        });
+    });
+
+    toast.promise(resultPromise, {
+      loading: "Deleting category...",
+      success: "Deleted category successfully",
+      error: (err) => err,
+    });
+  };
+
   return (
     <section className="py-1 bg-blueGray-50">
       <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
@@ -51,6 +83,9 @@ const TableProduct = () => {
                   <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                     Image
                   </th>
+                  <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    action
+                  </th>
                 </tr>
               </thead>
 
@@ -66,7 +101,7 @@ const TableProduct = () => {
                 ) : (
                   // Render actual data when available
                   currentItems.map((product) => (
-                    <tr key={product.id}>
+                    <tr key={product._id}>
                       <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
                         {product.name}
                       </th>
@@ -81,6 +116,14 @@ const TableProduct = () => {
                           className="rounded w-10 h-10"
                           src={"http://localhost:8080/uploads/" + product.image}
                           alt=""
+                        />
+                      </th>
+                      <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
+                        <Button
+                          label="delete"
+                          onClick={() => {
+                            handleDeleteCategory(product._id);
+                          }}
                         />
                       </th>
                     </tr>

@@ -1,24 +1,23 @@
-const { Categories } = require("../../models");
+const { Product } = require("../../models");
 
 module.exports = async (req, res, next) => {
-  console.log("sls");
   try {
-    const categoryId = req.params.categoryId;
+    const productId = req.params.id;
 
-    // Check if the categoryId is provided
-    if (!categoryId) {
-      return res.status(400).json({ error: "Category ID is required." });
+    // Check if the productId is provided
+    if (!productId) {
+      return res.status(400).json({ error: "Product ID is required." });
     }
 
-    // Find the category by ID and delete it
-    const deletedCategory = await Categories.findByIdAndDelete(categoryId);
+    // Find the product by ID and delete it
+    const deletedProduct = await Product.findByIdAndDelete(productId);
 
-    // Check if the category was found and deleted
-    if (!deletedCategory) {
-      return res.status(404).json({ error: "Category not found." });
+    // Check if the product was found and deleted
+    if (!deletedProduct) {
+      return res.status(404).json({ error: "Product not found." });
     }
 
-    res.json({ message: "Category deleted successfully." });
+    res.json({ message: "Product deleted successfully." });
   } catch (error) {
     // Handle errors
     res.status(500).json({ error: error.message });
