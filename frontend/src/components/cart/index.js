@@ -5,6 +5,7 @@ import { getUserCartData } from "../../redux/cart/getUsercartData.action";
 
 import empty from "../../Assets/images/empty.png";
 import { useAuth } from "../../hooks/useAuth";
+import Button from "../button";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,12 @@ const Cart = () => {
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-center ">No cart items to show</h1>
           <img src={empty} className="max-h-[100px]" />
+        </div>
+      )}
+
+      {items && (
+        <div className="mx-auto mt-10">
+          <Button label="Checkout" />
         </div>
       )}
     </div>
