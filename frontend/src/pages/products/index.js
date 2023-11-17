@@ -1,20 +1,35 @@
-import RangeSlider from "react-range-slider-input";
 import MultiRangeSlider from "../../components/multiRange/multiRange";
-import Button from "../../components/button";
+
 import ProductCard from "../../components/productCard";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/profilepic/getAllProducts.action";
 import SkeltonCard from "../../components/cardSkeleton";
 import { GuardWrapper } from "../../layouts/GuardWrapper";
-import { SuspenseLayout } from "../../layouts/SuspenseLayout";
+
 import UserLayout from "../../layouts/UserLayout";
-import AddToCart from "../../components/addTocartModal";
+import { axiosClient } from "../../configs/axios";
+
 const Product = (props) => {
   const [selectedCat, setSelectedCat] = useState({
     name: "Mugs",
     id: "6549f4d2252d074692130b65",
   });
+  const [allCategory, setAllCategory] = useState([]);
+
+  console.log(allCategory, "all");
+
+  useEffect(() => {
+    // Make the API call when the component mounts
+    axiosClient
+      .get("/category/allCategories")
+      .then((response) => {
+        setAllCategory(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching product data:", error);
+      });
+  }, []); // The empty dependency array ensures the effect runs only once on mount
 
   const [price, setPrice] = useState(null);
 
@@ -49,42 +64,21 @@ const Product = (props) => {
           </h2>
 
           <div className="mt-10">
-            <div className="flex justify-between">
-              <p
-                className="cursor-pointer text-[#cf2e2e]"
-                onClick={() => {
-                  setSelectedCat({
-                    name: "Mugs",
-                    id: "6549f4d2252d074692130b65",
-                  });
-                }}
-              >
-                Mugs
-              </p>
-              <p>
-                {"("}
-                {selectedCat.name === "Mugs" ? allProducts?.length : 4}
-                {")"}
-              </p>
-            </div>
-            <div className="mt-5 flex justify-between">
-              <p
-                className="cursor-pointer text-[#cf2e2e]"
-                onClick={() => {
-                  setSelectedCat({
-                    name: "Tshirts",
-                    id: "6549f4ed252d074692130b67",
-                  });
-                }}
-              >
-                Tshirts
-              </p>
-              <p>
-                {"("}
-                {selectedCat.name === "Tshirts" ? allProducts?.length : 3}
-                {")"}
-              </p>
-            </div>
+            {allCategory?.map(({ _id, name }) => {
+              return (
+                <p
+                  className="cursor-pointer hover:bg-[#e68787] bg-[#e68787] text-white max-w-[100px] flex justify-center my-2 rounded-xl"
+                  onClick={() => {
+                    setSelectedCat({
+                      name: name,
+                      id: _id,
+                    });
+                  }}
+                >
+                  {name}
+                </p>
+              );
+            })}
           </div>
         </div>
 
@@ -94,7 +88,7 @@ const Product = (props) => {
             <h2 class="text-4xl font-normal font-poppins leading-tight text-[#ff5151]">
               {selectedCat.name}
             </h2>
-            <p>Show all {allProducts?.length} results</p>
+            <p>{"(" + allProducts?.length + ")"} results</p>
           </div>
           {!isProductFetching && allProducts.length < 1 && (
             <p className="flex justify-center items-center min-h-[200px] text-3xl text-[#ff5151]">
