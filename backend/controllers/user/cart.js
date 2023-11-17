@@ -7,8 +7,6 @@ module.exports = async (req, res) => {
   try {
     const { userId } = req.query;
 
-    console.log(userId, "userIDcart");
-
     // Check if the user exists
     const userExists = await User.exists({ _id: userId });
     if (!userExists) {
