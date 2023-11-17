@@ -1,35 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BiAtom } from "react-icons/bi";
 import { BiCaretRight } from "react-icons/bi";
 
 const Accordion = () => {
-  const handleClick = () => {
-    console.log("handleClick");
-    let block = document.querySelector(".hidden"); // Use querySelector to get the first element with the class
-    if (block) {
-      block.style.display = block.style.display === "block" ? "none" : "block"; // Toggle display property
-      console.log("HELLO", block);
-    }
+  const [activeTab, setActiveTab] = useState(null);
+
+  const toggleTab = (index) => {
+    setActiveTab((prevActiveTab) => (prevActiveTab === index ? null : index));
   };
 
-  useEffect(() => {
-    let buttons = document.querySelectorAll(".accordion-button");
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("click", () => {
-        console.log("buttonClick");
-        handleClick();
-      });
-    }
-
-    // Remove event listeners when the component unmounts
-    return () => {
-      for (var i = 0; i < buttons.length; i++) {
-        buttons[i].removeEventListener("click", () => {
-          handleClick();
-        });
-      }
-    };
-  }, []);
+  const accordionData = [
+    {
+      title: "We Can Custom Design Your Ideas",
+      content:
+        "Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo",
+    },
+    {
+      title: "Your Payment Is Safe And Secured",
+      content:
+        "Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+    },
+    {
+      title: "We Offer Discounts And Coupons",
+      content:
+        "Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+    },
+  ];
   return (
     <div className="flex p-12">
       <div className="w-1/2">
@@ -104,47 +100,26 @@ const Accordion = () => {
         }}
       >
         <div className="border-2 rounded-lg">
-          <div className="accordion">
-            <div className="accordion-item">
-              <button className="accordion-button font-bold flex gap-3 items-center">
-                <i>
-                  <BiCaretRight />
-                </i>
-                We Can Custom Design Your Ideas
-              </button>
-              <div className="accordion-content hidden">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                consequuntur distinctio nesciunt
+          
+            {accordionData.map((tab, index) => (
+              <div key={index} className="accordion-tab py-[40px] px-[30px] border-b-gray-600  transition-all duration-300 ease-out">
+                <button
+                  className={`accordion-tab-title accordion-button font-bold flex gap-3 items-center  ${
+                    activeTab === index ? "active" : ""
+                  }`}
+                  onClick={() => toggleTab(index)}
+                >
+                  <i>
+                    <BiCaretRight />
+                  </i>
+                  {tab.title}
+                </button>
+                {activeTab === index && (
+                  <div className="accordion-tab-content py-[4px] px-[4px] transition-all duration-300 ease-out">{tab.content}</div>
+                )}
               </div>
-            </div>
-
-            <div className="accordion-item">
-              <button className="accordion-button font-bold flex gap-3 items-center">
-                <i>
-                  <BiCaretRight />
-                </i>
-                Your Payment Is Safe And Secured
-              </button>
-              <div className="accordion-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                consequuntur distinctio nesciunt
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <button className="accordion-button font-bold flex gap-3 items-center">
-                <i>
-                  <BiCaretRight />
-                </i>
-                We Offer Discounts And Coupons
-              </button>
-              <div className="accordion-content">
-                Click edit button to change this text. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                ullamcorper mattis, pulvinar dapibus leo.
-              </div>
-            </div>
-          </div>
+            ))}
+        
         </div>
       </div>
     </div>
