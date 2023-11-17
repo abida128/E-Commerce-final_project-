@@ -27,7 +27,7 @@ const Accordion = () => {
     },
   ];
   return (
-    <div className="flex p-12">
+    <div className="flex justify-center items-center p-12">
       <div className="w-1/2">
         <h1 className="text-3xl font-bold pb-6 text-gray-600">
           Best Quality Printed T-Shirts & <br />
@@ -96,7 +96,7 @@ const Accordion = () => {
         className="w-1/2 border-2 rounded-lg"
         style={{
           boxShadow:
-            "12px 14px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.3)",
+            "12px 14px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 3px -1px rgba(0, 0, 0, 0.2)",
         }}
       >
         <div className="border-2 rounded-lg">
