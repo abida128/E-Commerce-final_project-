@@ -9,12 +9,13 @@ import UserLayout from "../../layouts/UserLayout";
 import { BiSolidRightArrow } from "react-icons/bi";
 import Team from "../../components/team/team";
 import Accordion from "../accordion/accordion";
+import WorldWide from "../worldWide/worldWide";
 
 const AboutUs = (props) => {
   return (
     <GuardWrapper {...props}>
       <div className="text-center p-12 mt-12">
-        <h1 className="text-6xl font-bold pb-6 text-[#415161]">About Us</h1>
+        <h1 className="text-6xl font-bold pb-6  text-[#415161]">About Us</h1>
         <p className="text-center m-auto text-[#415161] text-lg">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
           tellus, luctus <br /> nec ullamcorper mattis, pulvinar dapibus leo.
@@ -23,13 +24,14 @@ const AboutUs = (props) => {
 
       <hr />
 
-      <div className="flex gap-12 h-[450px] py-7">
-        <div className="w-1/2 p-12">
-          <h1 className="text-4xl font-bold pb-6 text-[#415161]">
+      <div className="lg:flex items-center gap-12 h-[auto] py-7">
+        <div className="lg
+        :w-1/2 w-full p-12">
+          <h1 className="text-4xl font-bold pb-6 lg:pb-3 lg:text-3xl text-[#415161]">
             We Are Your Favorite, <br />
             Online Store.
           </h1>
-          <p className="text-[#415161]">
+          <p className="text-[#415161] lg:text-[15px] lg:pb-3 lg:py-3">
             Dui habitasse provident eu etiam praesent placeat maiores <br />{" "}
             temporibus, accumsan parturient autem, mi animi ipsa. Lobortis{" "}
             <br /> maxime quos, pellentesq. <br /> Ee platea animi commodo
@@ -38,8 +40,9 @@ const AboutUs = (props) => {
             excepteur excepteur fusce? Sunt minim expedita magnis!
           </p>
         </div>
-        <div className="w-1/2 flex pt-12 gap-8">
-          <div className="flex flex-col gap-2">
+        <div className="lg
+        :w-1/2 w-full flex pt-12 gap-8">
+          <div className="flex flex-col lg:items-center gap-2">
             <i className="text-[#ff5151] text-3xl">
               {" "}
               <AiFillGold />
@@ -59,7 +62,7 @@ const AboutUs = (props) => {
               and track.
             </p>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col lg:items-center lg:text-center gap-2">
             <i className="text-[#ff5151] text-3xl">
               {" "}
               <AiFillCodeSandboxSquare />
@@ -82,7 +85,7 @@ const AboutUs = (props) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-around bg-[#ff5151] h-40">
+      <div className="flex sm:flex-row flex-col text-center  items-center justify-around bg-[#ff5151] h-40">
         <h1 className="text-white font-bold text-4xl">
           Get Best Offers On Customized Designs!
         </h1>
@@ -104,8 +107,14 @@ const AboutUs = (props) => {
       <div>
         <Team />
         <Accordion />
+ aboutUs
+        <WorldWide />
+      </div>
+    </>
+
       </div>
     </GuardWrapper>
+ master
   );
 };
 
