@@ -1,7 +1,8 @@
 const { getJwtConfig } = require("../../configs/authJwt");
-const User = require("../../models/UserModel");
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { User } = require("../../models");
 const jwtConfig = getJwtConfig();
 
 module.exports = async (req, res, next) => {
@@ -27,7 +28,7 @@ module.exports = async (req, res, next) => {
 
     const resPayload = {
       accessToken,
-      ...user.toObject(), // Remove .toObject() from here
+      userData: { ...user.toObject() }, // Remove .toObject() from here
     };
 
     return res.status(200).json(resPayload);

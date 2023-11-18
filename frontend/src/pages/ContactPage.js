@@ -1,26 +1,20 @@
-import React from 'react';
-import ContactForm from '../components/ContactForm';
-import Header from "../components/header";
-import Button from "../components/button";
-import Footer from "../components/footer";
+import React from "react";
+import ContactForm from "../components/ContactForm";
+import { GuardWrapper } from "../layouts/GuardWrapper";
+import UserLayout from "../layouts/UserLayout";
 
-
-
-
-function ContactPage() {
+function ContactPage(props) {
   return (
-    <>
-<Header />
-    < br/>
-    < br/>
-
-    <div>
+    <GuardWrapper {...props} classname="mt-10 ">
       <ContactForm />
-    </div>
-    <Footer />
-
-    </>
+    </GuardWrapper>
   );
 }
 
 export default ContactPage;
+
+ContactPage.defaultProps = {
+  getLayout: (page) => <UserLayout>{page}</UserLayout>,
+  guestGuard: false,
+  authGuard: false,
+};

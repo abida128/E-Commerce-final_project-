@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+.shopnow {
+  background-image: url("./Assets/images/banner.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
 
-.shopnow{
-    background-image: url("./Assets/images/banner.jpg");
-    background-size: cover;
-    background-attachment: fixed;
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
-
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }

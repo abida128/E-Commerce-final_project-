@@ -1,0 +1,23 @@
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ff5151; /* Set your desired thumb color */
+  border-radius: 8px;
+}
+
+/* Hide scrollbar for non-WebKit browsers (Firefox, Edge) */
+body {
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Set your desired track color */
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #ff5151; /* Set your desired thumb color on hover */
+}

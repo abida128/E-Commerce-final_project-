@@ -1,16 +1,19 @@
 import React from "react";
-import { AiFillGold } from "react-icons/ai";
+import { AiFillGold, AiFillHtml5 } from "react-icons/ai";
 import { AiFillCodepenSquare } from "react-icons/ai";
 import { AiFillCodeSandboxSquare } from "react-icons/ai";
-import { AiFillHtml5 } from "react-icons/ai";
+import { GuardWrapper } from "../../layouts/GuardWrapper";
+import { SuspenseLayout } from "../../layouts/SuspenseLayout";
+import UserLayout from "../../layouts/UserLayout";
+
 import { BiSolidRightArrow } from "react-icons/bi";
 import Team from "../../components/team/team";
 import Accordion from "../accordion/accordion";
 import WorldWide from "../worldWide/worldWide";
 
-const AboutUs = () => {
+const AboutUs = (props) => {
   return (
-    <>
+    <GuardWrapper {...props}>
       <div className="text-center p-12 mt-12">
         <h1 className="text-6xl font-bold pb-6  text-[#415161]">About Us</h1>
         <p className="text-center m-auto text-[#415161] text-lg">
@@ -104,10 +107,21 @@ const AboutUs = () => {
       <div>
         <Team />
         <Accordion />
+ aboutUs
         <WorldWide />
       </div>
     </>
+
+      </div>
+    </GuardWrapper>
+ master
   );
 };
 
 export default AboutUs;
+
+AboutUs.defaultProps = {
+  getLayout: (page) => <UserLayout>{page}</UserLayout>,
+  guestGuard: false,
+  authGuard: false,
+};

@@ -1,15 +1,12 @@
-import React from 'react'
-import Header from '../../components/header'
+import React from "react";
+import Header from "../../components/header";
 
 function ForgotPass() {
   return (
     <>
-    <Header /> 
-    <div>
-      forgot pass
-    </div>
+      <div>forgot pass</div>
     </>
-  )
+  );
 }
 
-export default ForgotPass
+export default ForgotPass;
