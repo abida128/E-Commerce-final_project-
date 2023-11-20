@@ -25,8 +25,10 @@ const AboutUs = (props) => {
       <hr />
 
       <div className="lg:flex items-center gap-12 h-[auto] py-7">
-        <div className="lg
-        :w-1/2 w-full p-12">
+        <div
+          className="lg
+        :w-1/2 w-full p-12"
+        >
           <h1 className="text-4xl font-bold pb-6 lg:pb-3 lg:text-3xl text-[#415161]">
             We Are Your Favorite, <br />
             Online Store.
@@ -40,8 +42,10 @@ const AboutUs = (props) => {
             excepteur excepteur fusce? Sunt minim expedita magnis!
           </p>
         </div>
-        <div className="lg
-        :w-1/2 w-full flex pt-12 gap-8">
+        <div
+          className="lg
+        :w-1/2 w-full flex pt-12 gap-8"
+        >
           <div className="flex flex-col lg:items-center gap-2">
             <i className="text-[#ff5151] text-3xl">
               {" "}
@@ -107,14 +111,10 @@ const AboutUs = (props) => {
       <div>
         <Team />
         <Accordion />
- aboutUs
+        aboutUs
         <WorldWide />
       </div>
-    </>
-
-      </div>
     </GuardWrapper>
- master
   );
 };
 

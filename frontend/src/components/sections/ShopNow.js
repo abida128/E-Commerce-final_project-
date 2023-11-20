@@ -1,5 +1,6 @@
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ShopNow = () => {
   return (
@@ -20,12 +21,12 @@ const ShopNow = () => {
 
           <div className="mt-6 flex gap-5 font-[poppins, sans-serif]">
             <button className="flex bg-red-500 text-white px-6 py-2 rounded-lg">
-              <div className="flex items-center gap-2">
+              <Link to="/products" className="flex items-center gap-2">
                 Shop Now
                 <i className="h-5">
                   <FaAngleRight />
                 </i>
-              </div>
+              </Link>
             </button>
           </div>
         </div>

@@ -37,7 +37,7 @@ const NewProductCard = () => {
           {allCategory?.slice(0, 4).map(({ image, name, price }) => {
             return (
               <RatingCard
-                className="h-auto w-[10%] px-2 m-4"
+                className="h-auto min px-2 m-4"
                 imageSrc={"http://localhost:8080/uploads/" + image}
                 name={name}
                 detail="Black Printed Coffee Mug"
