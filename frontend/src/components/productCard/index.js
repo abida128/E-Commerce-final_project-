@@ -13,6 +13,7 @@ const ProductCard = ({ name, image, price, selectedCat, _id }) => {
 
     setIsDialogOpen(false);
   };
+  console.log(image, "image");
 
   return (
     <div

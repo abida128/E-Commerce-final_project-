@@ -1,6 +1,7 @@
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 import Image from "../../Assets/images/girl.png";
+import { Link } from "react-router-dom";
 
 const MainCard = () => {
   return (
@@ -28,12 +29,12 @@ const MainCard = () => {
 
           <div className="mt-6 flex gap-5 font-[poppins, sans-serif]">
             <button className="flex bg-red-500 text-white px-6 py-2 rounded-lg">
-              <div className="flex items-center gap-2">
+              <Link to="/login" className="flex items-center gap-2">
                 GET STARTED
                 <i className="h-5">
                   <FaAngleRight />
                 </i>
-              </div>
+              </Link>
             </button>
           </div>
         </div>

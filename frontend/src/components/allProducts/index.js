@@ -39,7 +39,7 @@ const TableProduct = () => {
     );
     return res;
   };
-  console.log();
+
   const handleDeleteCategory = (categoryId) => {
     const resultPromise = new Promise((resolve, reject) => {
       deleteCategory(categoryId)
