@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
 import RatingCard from "../Home/RatingCard";
-import Img1 from "../../Assets/images/mug-white.png";
-import Img2 from "../../Assets/images/mug-coffee.jpg";
-import Img3 from "../../Assets/images/mug-yellow.jpg";
-import Img4 from "../../Assets/images/mug-blue.jpg";
 import { axiosClient } from "../../configs/axios";
 
 const NewProductCard = () => {

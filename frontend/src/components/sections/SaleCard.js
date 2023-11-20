@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Imag1 from "../../Assets/images/tshirt.jpg";
-import Imag2 from "../../Assets/images/tshirt6.jpg";
-import Imag3 from "../../Assets/images/tshirt2.jpg";
-import Imag4 from "../../Assets/images/tshirt5.jpg";
 import ProductCard from "../../components/Home/ProductCard";
 import { axiosClient } from "../../configs/axios";
 
