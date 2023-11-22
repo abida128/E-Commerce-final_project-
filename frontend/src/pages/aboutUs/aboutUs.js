@@ -107,14 +107,14 @@ const AboutUs = (props) => {
       <div>
         <Team />
         <Accordion />
- aboutUs
+       aboutUs
         <WorldWide />
       </div>
-    </>
+  
 
-      </div>
+     
     </GuardWrapper>
- master
+ 
   );
 };
 
