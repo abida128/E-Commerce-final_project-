@@ -114,11 +114,9 @@ const AboutUs = (props) => {
  aboutUs
         <WorldWide />
       </div>
-    </>
-
-      </div>
+   
     </GuardWrapper>
- master
+
   );
 };
 
